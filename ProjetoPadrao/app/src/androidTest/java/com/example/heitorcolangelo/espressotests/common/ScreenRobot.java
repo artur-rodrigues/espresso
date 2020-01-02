@@ -165,6 +165,7 @@ public abstract class ScreenRobot <T extends ScreenRobot> {
 
     public T enterTextIntoView(@IdRes int viewId, String text) {
         onView(withId(viewId)).perform(typeText(text));
+        Espresso.closeSoftKeyboard();
         return (T) this;
     }
 

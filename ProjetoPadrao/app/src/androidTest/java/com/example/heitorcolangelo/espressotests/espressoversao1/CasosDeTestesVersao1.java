@@ -88,7 +88,7 @@ public class CasosDeTestesVersao1 {
     }
 
     @Test
-    public void telaDeUsuarioScrollarAListaDeUsuario() throws InterruptedException {
+    public void telaDeUsuarioScrollarAListaDeUsuario() {
         logar();
 //        onView(withId(R.id.recycler_view)).perform(swipeUp(), click());
         onView(withId(R.id.recycler_view)).perform(scrollToPosition(5));
@@ -130,6 +130,8 @@ public class CasosDeTestesVersao1 {
         return new BoundedMatcher<View, RecyclerView>(RecyclerView.class) {
             @Override
             public void describeTo(Description description) {
+                description.appendText("with index: ");
+                description.appendValue(position);
                 itemMatcher.describeTo(description);
             }
 
